@@ -22,7 +22,8 @@ public:
 
     void insertAtBeg(T data) {
         Node<T>* newNode = new Node<T>(data);
-       
+        newNode->setNext(Head);
+        Head = newNode;
     }
 
     void insertAtEnd(T data) {
@@ -34,7 +35,7 @@ public:
             while (temp->getNext() != nullptr) {
                 temp = temp->getNext();
             }
-           
+            temp->setNext(newNode);
         }
     }
 
@@ -52,12 +53,12 @@ public:
         for (int i = 0; temp != nullptr && i < index - 1; i++) {
             temp = temp->getNext();
         }
-        if (temp == nullptr || temp->getNext() == nullptr) {
-            
+        if (temp == nullptr) {
+            std::cerr << "Index out of bounds" << std::endl;
             return;
         }
         Node<T>* newNode = new Node<T>(data);
-        
+        newNode->setNext(temp->getNext());
         temp->setNext(newNode);
     }
 
@@ -136,7 +137,7 @@ public:
         }
         Node<T>* temp = Head;
         int length = 0;
-        while (temp->getNext() != nullptr) {
+        while (temp != nullptr) {
             length++;
             temp = temp->getNext();
         }
