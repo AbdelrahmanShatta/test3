@@ -22,8 +22,7 @@ public:
 
     void insertAtBeg(T data) {
         Node<T>* newNode = new Node<T>(data);
-        newNode->setNext(Head);
-        Head = newNode;
+       
     }
 
     void insertAtEnd(T data) {
@@ -35,7 +34,7 @@ public:
             while (temp->getNext() != nullptr) {
                 temp = temp->getNext();
             }
-            temp->setNext(newNode);
+           
         }
     }
 
@@ -58,7 +57,7 @@ public:
             return;
         }
         Node<T>* newNode = new Node<T>(data);
-        newNode->setNext(temp->getNext());
+        
         temp->setNext(newNode);
     }
 
