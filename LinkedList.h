@@ -53,7 +53,7 @@ public:
             temp = temp->getNext();
         }
         if (temp == nullptr || temp->getNext() == nullptr) {
-            std::cerr << "Index out of bounds" << std::endl;
+            
             return;
         }
         Node<T>* newNode = new Node<T>(data);
